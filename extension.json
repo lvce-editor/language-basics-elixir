@@ -1,0 +1,12 @@
+{
+  "id": "builtin.language-basics-elixir",
+  "name": "Language Basics Elixir",
+  "description": "Provides syntax highlighting and bracket matching in Elixir files.",
+  "languages": [
+    {
+      "id": "elixir",
+      "extensions": [".ex"],
+      "tokenize": "src/tokenizeElixir.js"
+    }
+  ]
+}
