@@ -1,5 +1,4 @@
-# Language Basics Elixir
-
+# Language Basics ELIXIR
 
 ## Contributing
 
