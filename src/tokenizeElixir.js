@@ -54,6 +54,8 @@ const RE_TRIPLE_DOUBLE_QUOTE = /^"""/
 const RE_STRING_TRIPLE_CONTENT = /^.+?(?="""|$)/s
 const RE_ATTRIBUTE = /^@\w+/
 
+export const hasArrayReturn = true
+
 /**
  * @param {string} line
  * @param {any} lineState
@@ -137,11 +139,9 @@ export const tokenizeLine = (line, lineState) => {
         state
         throw new Error('no')
     }
-    index += next[0].length
-    tokens.push({
-      type: token,
-      length: next[0].length,
-    })
+    const tokenLength = next[0].length
+    index += tokenLength
+    tokens.push(token, tokenLength)
   }
   return {
     state,
