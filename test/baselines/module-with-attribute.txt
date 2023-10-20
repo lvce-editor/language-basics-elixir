@@ -2,9 +2,9 @@ Keyword
 Whitespace
 VariableName
 Whitespace
-Keyword
+KeywordControl
 NewLine
 Whitespace
 Attribute
 NewLine
-Keyword
+KeywordControl
