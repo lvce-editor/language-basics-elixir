@@ -22,6 +22,8 @@ export const TokenType = {
   String: 4,
   Numeric: 5,
   Attribute: 6,
+  KeywordControl: 9,
+  KeywordReturn: 10,
 }
 
 export const TokenMap = {
@@ -34,6 +36,8 @@ export const TokenMap = {
   [TokenType.String]: 'String',
   [TokenType.Numeric]: 'Numeric',
   [TokenType.Attribute]: 'Attribute',
+  [TokenType.KeywordControl]: 'KeywordControl',
+  [TokenType.KeywordReturn]: 'KeywordReturn',
 }
 
 export const initialLineState = {
@@ -74,7 +78,33 @@ export const tokenizeLine = (line, lineState) => {
           token = TokenType.Whitespace
           state = State.TopLevelContent
         } else if ((next = part.match(RE_KEYWORD))) {
-          token = TokenType.Keyword
+          switch (next[0]) {
+            case 'break':
+            case 'case':
+            case 'do':
+            case 'elsif':
+            case 'else':
+            case 'for':
+            case 'if':
+            case 'in':
+            case 'then':
+            case 'while':
+            case 'end':
+            case 'def':
+            case 'begin':
+            case 'rescue':
+            case 'unless':
+            case 'do':
+            case 'end':
+              token = TokenType.KeywordControl
+              break
+            case 'return':
+              token = TokenType.KeywordReturn
+              break
+            default:
+              token = TokenType.Keyword
+              break
+          }
           state = State.TopLevelContent
         } else if ((next = part.match(RE_VARIABLE_NAME))) {
           token = TokenType.VariableName
