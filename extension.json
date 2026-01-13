@@ -5,8 +5,11 @@
   "languages": [
     {
       "id": "elixir",
-      "extensions": [".ex"],
+      "extensions": [
+        ".ex"
+      ],
       "tokenize": "src/tokenizeElixir.js"
     }
-  ]
+  ],
+  "repository": "https://github.com/lvce-editor/language-basics-elixir"
 }
