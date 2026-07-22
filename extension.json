@@ -5,9 +5,7 @@
   "languages": [
     {
       "id": "elixir",
-      "extensions": [
-        ".ex"
-      ],
+      "extensions": [".ex"],
       "tokenize": "src/tokenizeElixir.js"
     }
   ],
